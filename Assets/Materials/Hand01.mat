@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hand01
+  m_Shader: {fileID: 4800000, guid: 285cacabab511194b859ec51a7f0970a, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHABLEND_ON
+  - _GLOSSYREFLECTIONS_OFF
+  - _SPECULARHIGHLIGHTS_OFF
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SDIDTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaScale: 0.662
+    - _Amount: 0.0042
+    - _Back: 1
+    - _BumpScale: 1
+    - _CellOffset: 0.2
+    - _CellSpeed: 5
+    - _CellVariation: 0.2
+    - _CumstomValue: -0.1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DetailedTransitionWidth: 0.5
+    - _DstBlend: 10
+    - _FadeEnabled: 0
+    - _FadeEnd: 0.85
+    - _FadeRange: 0.5
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _LargeThickness: 0.1
+    - _LineCrispness: 0.5
+    - _LineSize: 0.02
+    - _Metallic: 0.818
+    - _Mode: 2
+    - _OcclusionStrength: 0.626
+    - _Offset: 0.142
+    - _Parallax: 0.02
+    - _Power: 1
+    - _PulseEnabled: 0
+    - _Range: 10
+    - _RimLightMul: 1.19
+    - _RimLightPow: 3.03
+    - _RimPower: 5.99
+    - _Scale: 10
+    - _SmallThickness: 0.1
+    - _Smoothness: 0.25
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 0
+    - _Speed: -1.2
+    - _SrcBlend: 5
+    - _TransitionOffset: 0.5
+    - _TransitionWidth: 1
+    - _UVSec: 0
+    - _WireThickness: 509
+    - _ZWrite: 0
+    m_Colors:
+    - _Center: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.09893334, g: 0.42498025, b: 0.93333334, a: 1}
+    - _Color2: {r: 0.08235294, g: 0, b: 1, a: 1}
+    - _EmissionColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    - _InnerColor: {r: 0.57547164, g: 0.15968579, b: 0, a: 0.08627451}
+    - _LineColorLarge: {r: 1, g: 0.8, b: 0.01, a: 1}
+    - _LineColorSmall: {r: 0.5, g: 0.8, b: 1, a: 1}
+    - _OuterColor: {r: 1, g: 0.2799999, b: 0, a: 0}
+    - _TransmissionPlane: {r: 0, g: 10, b: 0, a: 0}
+    - _WireColor: {r: 0, g: 0.16286047, b: 0.4811321, a: 1}
+  m_BuildTextureStacks: []
