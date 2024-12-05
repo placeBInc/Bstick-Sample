@@ -7,9 +7,7 @@ using static Bstick.Common;
 public class HapticContorller : MonoBehaviour
 {
     private BstickBridge bstickBridge;
-
-    //public HapticHandManager _hapticHandManager;
-    public HapticDirection HapticDir = HapticDirection.Right; //1:left, 2:right
+    public HapticDirection HapticDir = HapticDirection.Right;
 
     public bool IsLeft = false;
 
@@ -127,8 +125,10 @@ public class HapticContorller : MonoBehaviour
         bstickBridge.CloseClient();
     }
 
+    [Serializable]
     public class VibrateData
     {
+        [Range(1, 100)]
         public int[] pattern;
         public int repeat;
         public VibrateState state;
