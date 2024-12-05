@@ -59,7 +59,10 @@ public class StiffnessCollisionInner : MonoBehaviour
 
         triggerManager.PivotRange().ResetPivot(finger.GetFingerIndex());
         triggerManager.Stiffness().InitStiffness(finger.GetFingerIndex());
-        
+
+        if (triggerManager.UseVibrator)
+            triggerManager.Vibrator().SetVibratorInit();
+
         //Debug.Log(String.Format("Exit"));
     }
 }

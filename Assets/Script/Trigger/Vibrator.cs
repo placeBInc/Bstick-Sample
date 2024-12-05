@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using static HapticContorller;
 
@@ -25,6 +26,16 @@ public class Vibrator : MonoBehaviour
     public void SetVibrator()
     {
         triggerManager.HapticContorller().SetVibrate(vibrateData);
+    }
+    public void SetVibratorInit()
+    {
+        VibrateData initVibrateData = new VibrateData();
+        
+        initVibrateData.pattern = new int[1] { 0 };
+        initVibrateData.repeat = 1;
+        initVibrateData.state = vibrateData.state;
+        
+        triggerManager.HapticContorller().SetVibrate(initVibrateData);
     }
 
     public void OnValidate()
