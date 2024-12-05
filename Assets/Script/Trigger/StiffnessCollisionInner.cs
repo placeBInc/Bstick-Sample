@@ -22,7 +22,14 @@ public class StiffnessCollisionInner : MonoBehaviour
         var index = finger.GetFingerIndex();
 
         triggerManager.Stiffness().SetStiffness(index);
+
         colFingerCount++;
+
+        if (colFingerCount != 5) return;
+
+        if (triggerManager.UseVibrator)
+            triggerManager.Vibrator().SetVibrator();
+
     }
 
     void OnTriggerStay(Collider other)

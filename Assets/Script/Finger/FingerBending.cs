@@ -12,11 +12,12 @@ public class FingerBending : MonoBehaviour
     public float BendAngle = 40.0f; // Adjust the angle as needed Other Finger : 40
     public float BendThumbAngle = 20.0f; // Adjust the angle as needed Thumb Finger : 20
 
-    public Transform[] ThumbJoints; // Assign the finger joint transforms in the Inspector
-    public Transform[] IndexJoints; // Assign the finger joint transforms in the Inspector
-    public Transform[] MiddleJoints; // Assign the finger joint transforms in the Inspector
-    public Transform[] RingJoints; // Assign the finger joint transforms in the Inspector
-    public Transform[] PinkyJoints; // Assign the finger joint transforms in the Inspector
+    // Assign the finger joint transforms in the Inspector
+    public Transform[] ThumbJoints;
+    public Transform[] IndexJoints; 
+    public Transform[] MiddleJoints; 
+    public Transform[] RingJoints; 
+    public Transform[] PinkyJoints;
 
     private Quaternion[] initialThumbRotations;
     private Quaternion[] initialIndexRotations;

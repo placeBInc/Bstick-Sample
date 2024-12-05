@@ -4,13 +4,17 @@ public class TriggerManager : MonoBehaviour
 {
     [SerializeField] private HapticContorller hapticContorller;
 
+    public bool UseVibrator = false;
+
     private Stiffness stiffness;
     private PivotRange pivotRange;
+    private Vibrator vibrator;
 
     void Awake()
     {
         stiffness = GetComponent<Stiffness>();
         pivotRange = GetComponent<PivotRange>();
+        vibrator = GetComponent<Vibrator>();
     }
 
     public HapticContorller HapticContorller()
@@ -26,5 +30,10 @@ public class TriggerManager : MonoBehaviour
     public PivotRange PivotRange()
     {
         return pivotRange;
+    }
+
+    public Vibrator Vibrator()
+    {
+        return vibrator;
     }
 }
