@@ -1,123 +1,96 @@
 ﻿using System;
 using Bstick;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Bstick.Common;
 
-public class HapticContorller : MonoBehaviour
+
+public class HapticContorller : Singleton<HapticContorller>
 {
     private BstickBridge bstickBridge;
-    public HapticDirection HapticDir = HapticDirection.Right;
 
-    public bool IsLeft = false;
-
-    public enum HapticDirection
-    {
-        Left = 1, Right = 2
-    }
-
-// Start is called before the first frame update
     void Start()
     {
-        InitHapticDll();
+        HapticContorller.Instance.InitHapticDll();
     }
-
     // Update is called once per frame
     void Update()
     {
     }
 
-    private void InitHapticDll()
+    public void InitHapticDll()
     {
         if (bstickBridge != null) return;
         bstickBridge = new BstickBridge();
-        var direction = Convert.ToInt32(HapticDir);
-        bstickBridge.InitializeHapticDevice(direction, Debug.Log);
-        SetMotorRange(0);
+        //var direction = Convert.ToInt32(BstickDirection.Left);
+        bstickBridge.InitializeHapticDevice(OsType.DeskTop, Debug.Log);
+
+        //Callback 함수로 사용
+       // bstickBridge.OnParseData();
+
+        SetMotorRange(BstickDirection.Left, BstickSetMotion.MotorRange, new int[5]);
+        SetMotorRange(BstickDirection.Right, BstickSetMotion.MotorRange,new int[5]);
     }
 
-    public void SetStiffness(float stiffness)
+    public void SetStiffness(BstickDirection direction, BstickSetMotion motion, int[] stiffness)
     {
-        bstickBridge.SetStiffness(stiffness);
+        bstickBridge.SendMotionDataChange(direction, motion, new MotionData() { Stiffness = stiffness });
     }
 
-    public void SetStiffness(float[] stiffness)
+    public void SetMotorRange(BstickDirection direction, BstickSetMotion motion,int[] min)
     {
-        bstickBridge.SetStiffness(stiffness);
+        bstickBridge.SendMotionDataChange(direction, motion, new MotionData(){MotorMin = min});
     }
 
-    public void SetMotorRange(int min = 0)
+    public void SetVibrate(BstickDirection direction, BstickSetMotion motion, VibrateData data)
     {
-        bstickBridge.SetMotorRange(min);
+        bstickBridge.SendMotionDataChange(direction, motion, new MotionData() { VibePattern = data.pattern, VibeRepeat = data.repeat, VibeState = data.state});
     }
 
-    public void SetMotorRange(int index, int[] min)
+    public void SetTempPad(BstickDirection direction, BstickSetMotion motion,bool enable, TempType type, int value)
     {
-        bstickBridge.SetMotorRange(index, min);
+        bstickBridge.SendMotionDataChange(direction, motion, new MotionData() {TempEnable = enable, TemperaturType = type = type, TempValue = value});
     }
 
-    public void SetVibrate(VibrateData data)
+    public List<int> GetBstickGripData(BstickDirection direction, BstickMotion motion)
     {
-        bstickBridge.SetVibrateBstick(data.pattern, data.repeat, data.state);
+        return bstickBridge.GetBstickGripData(direction, motion);
     }
 
-    public void SetTempPad(bool enable, TempType type, int value)
+    public float GetFingerIndex(BstickDirection direction, BstickMotion motion, FingerIndex idx)
     {
-        bstickBridge.SetTempPadBstick(enable, type, value);
-    }
+        if (!bstickBridge.IsConnected(direction)) return 0;
 
-    public List<float> GetMotorPosition()
-    {
-        return bstickBridge.GetMotorPosition();
-    }
-
-    public List<float> GetPressureValues()
-    {
-        return bstickBridge.GetPressureValues();
-    }
-
-    public float GetFingerIndex(int idx)
-    {
-        if (!bstickBridge.IsConnected()) return 0;
-
-        var position = bstickBridge.GetMotorPosition()[idx];
+        var position =1.0f - ((float)GetBstickGripData(direction, motion)[(int)idx] / Common.MAX_POSITION);
 
         return position;
     }
 
-    public float GetMotorPositionAverage()
+    public ushort GetMotorPositionAverage(BstickDirection direction, BstickMotion motion)
     {
-        return bstickBridge.GetAverageMotorPosition();
+        return (ushort)GetBstickGripData(direction, motion).Average(arg => ushort.MinValue);
     }
 
-    public bool TouchButtonPress()
+    public bool GetTouchState(BstickDirection direction, TouchpadState state)
     {
-        return bstickBridge.TouchButtonPress();
+        return bstickBridge.GetTouchState(direction,state);
     }
 
-    public bool TouchButtonRelease()
+    public bool GetTouchpadState(BstickDirection direction, TouchpadState state)
     {
-        return bstickBridge.TouchButtonRelease();
+        return bstickBridge.GetTouchpadState(direction, state);
     }
 
-    public bool GetTouchState(TouchpadState state)
+    public TouchpadState GetTouchStateCheck(BstickDirection direction)
     {
-        return bstickBridge.GetTouchState(state);
+        return bstickBridge.GetTouchStateCheck(direction);
     }
 
-    public bool GetTouchpadState(TouchpadState state)
+    public bool IsConnect(BstickDirection direction)
     {
-        return bstickBridge.GetTouchpadState(state);
-    }
-
-    public TouchpadState GetTouchStateCheck()
-    {
-        return bstickBridge.GetTouchStateCheck();
-    }
-
-    public bool IsConnect()
-    {
-        return bstickBridge.IsConnected();
+        return bstickBridge.IsConnected(direction);
     }
 
     void OnApplicationQuit()

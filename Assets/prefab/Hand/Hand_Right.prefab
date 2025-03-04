@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5181946366327985102}
   - component: {fileID: 9128793635343305974}
-  - component: {fileID: 7760642511224313196}
+  - component: {fileID: 1657222269}
   m_Layer: 0
   m_Name: Hand_Right
   m_TagString: Untagged
@@ -75,7 +75,7 @@ MonoBehaviour:
   - {fileID: 3837567701346149963}
   - {fileID: 350498914753439307}
   - {fileID: 790665665341029203}
---- !u!114 &7760642511224313196
+--- !u!114 &1657222269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,11 +84,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4248298722868813662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3a1f9bfe5a0804998d707a3c48bb28, type: 3}
+  m_Script: {fileID: 11500000, guid: 9017eaa87955ec9499fc46d5f112eb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HapticDir: 2
-  IsLeft: 0
+  direction: 2
 --- !u!1001 &1317520959870058188
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TriggerManager : MonoBehaviour
 {
-    [SerializeField] private HapticContorller hapticContorller;
+    [SerializeField] private BstickInfomation bstickInfomation;
 
     public bool UseVibrator = false;
 
@@ -17,9 +17,9 @@ public class TriggerManager : MonoBehaviour
         vibrator = GetComponent<Vibrator>();
     }
 
-    public HapticContorller HapticContorller()
+    public BstickInfomation BstickInfomation()
     {
-        return hapticContorller;
+        return bstickInfomation;
     }
 
     public Stiffness Stiffness()

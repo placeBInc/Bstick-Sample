@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Stiffness))]
 public class StiffnessButton : Editor
 {
@@ -11,9 +10,10 @@ public class StiffnessButton : Editor
         base.OnInspectorGUI();
 
         var button = (Stiffness)target;
-        if (GUILayout.Button("ApplyStiffness"))
+        if (GUILayout.Button("ApplyStiffnessEdit"))
         {
-            button.ApplyStiffness();
+            button.ApplyStiffnessEdit();
         }
     }
 }
+#endif

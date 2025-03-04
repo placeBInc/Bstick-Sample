@@ -18,26 +18,27 @@ public class PivotRange : MonoBehaviour
 
     public void SetPivotRange(int index, float position = 0)
     {
-        pivot[index] = pushPivot[index] = (int)((1.0f - position) * Common.MAX_POSITION * pivotRation);
+        pivot[index] = pushPivot[index] = (int)(Common.MAX_POSITION * pivotRation);
 
         //Debug.Log(String.Format("pivot : {0} , {1}", pivot, position));
 
-        triggerManager.HapticContorller().SetMotorRange(index, pivot);
+        triggerManager = GetComponent<TriggerManager>();
+        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pivot);
     }
 
     public void PushPivotRange(int index)
     {
         pushPivot[index] = 0;
-        triggerManager.HapticContorller().SetMotorRange(index, pushPivot);
+        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pushPivot);
     }
 
     public void InitPivot()
     {
-        triggerManager.HapticContorller().SetMotorRange(0);
+        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, new int[5]);
     }
 
     public void ResetPivot(int index)
     {
-        triggerManager.HapticContorller().SetMotorRange(index, pivot);
+        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pivot);
     }
 }

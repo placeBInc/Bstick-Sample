@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.04336528, g: 0.04775986, b: 0.060730126, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,17 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &151103542 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5918535654586057577, guid: 1b21cf385931c374b9f2578b53cd21f0, type: 3}
-  m_PrefabInstance: {fileID: 654210340}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3a1f9bfe5a0804998d707a3c48bb28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &164303661
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,17 +5061,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c045bfa16b4ec45a4ed6f7111eb794, type: 3}
---- !u!114 &449404454 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7760642511224313196, guid: b4c045bfa16b4ec45a4ed6f7111eb794, type: 3}
-  m_PrefabInstance: {fileID: 303322843}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c3a1f9bfe5a0804998d707a3c48bb28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &622722223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,7 +5096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822dfa30d4e26a449b32dd3ecab62221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hapticContorller: {fileID: 151103542}
+  bstickInfomation: {fileID: 2065110831}
   UseVibrator: 1
 --- !u!114 &622722225
 MonoBehaviour:
@@ -5162,7 +5139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f017ad0e84f7af45991a560a299daf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 0.2
+  Value: 0
 --- !u!114 &622722228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15451,6 +15428,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1538177091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1657222269, guid: b4c045bfa16b4ec45a4ed6f7111eb794, type: 3}
+  m_PrefabInstance: {fileID: 303322843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9017eaa87955ec9499fc46d5f112eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1914780152
 GameObject:
   m_ObjectHideFlags: 0
@@ -15512,6 +15500,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2065110831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1312754016, guid: 1b21cf385931c374b9f2578b53cd21f0, type: 3}
+  m_PrefabInstance: {fileID: 654210340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9017eaa87955ec9499fc46d5f112eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2141582407
 GameObject:
   m_ObjectHideFlags: 0
@@ -35088,6 +35087,8 @@ GameObject:
   - component: {fileID: 6195953804525062546}
   - component: {fileID: 6195953804525062577}
   - component: {fileID: 6195953804525062576}
+  - component: {fileID: 6195953804525062579}
+  - component: {fileID: 6195953804525062578}
   m_Layer: 0
   m_Name: SparkExplosionR
   m_TagString: Untagged
@@ -39731,7 +39732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822dfa30d4e26a449b32dd3ecab62221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hapticContorller: {fileID: 449404454}
+  bstickInfomation: {fileID: 1538177091}
   UseVibrator: 1
 --- !u!114 &6195953804525062577
 MonoBehaviour:
@@ -39749,3 +39750,29 @@ MonoBehaviour:
     pattern: 640000000100000064000000010000006400000001000000
     repeat: 1
     state: 3
+--- !u!114 &6195953804525062578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195953804525062574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcae7a9816f056640a6a0ccd14a4dfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotRation: 0.8
+--- !u!114 &6195953804525062579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195953804525062574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f017ad0e84f7af45991a560a299daf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 0

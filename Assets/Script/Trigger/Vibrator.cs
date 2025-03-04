@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Bstick;
 using UnityEngine;
 using static HapticContorller;
 
@@ -25,7 +26,7 @@ public class Vibrator : MonoBehaviour
 
     public void SetVibrator()
     {
-        triggerManager.HapticContorller().SetVibrate(vibrateData);
+        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.Vibrator, vibrateData);
     }
     public void SetVibratorInit()
     {
@@ -34,8 +35,8 @@ public class Vibrator : MonoBehaviour
         initVibrateData.pattern = new int[1] { 0 };
         initVibrateData.repeat = 1;
         initVibrateData.state = vibrateData.state;
-        
-        triggerManager.HapticContorller().SetVibrate(initVibrateData);
+
+        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.Vibrator, initVibrateData);
     }
 
     public void OnValidate()

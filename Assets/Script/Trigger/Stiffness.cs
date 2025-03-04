@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
+using static Bstick.Common;
 
 public class Stiffness : MonoBehaviour
 {
     private TriggerManager triggerManager;
 
-    private float[] stiffness = new float[5]; // Number of fingers
+    private int[] stiffness = new int[5]; // Number of fingers
 
-    public float Value = 0.0f;
+    public int Value = 0;
 
     private bool isStiffnessStay = false;
 
@@ -23,13 +24,13 @@ public class Stiffness : MonoBehaviour
     public void SetStiffness(int index)
     {
         stiffness[index] = Value;
-        triggerManager.HapticContorller().SetStiffness(stiffness);
+        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
     }
 
     public void InitStiffness(int index)
     {
-        stiffness[index] = 0.0f;
-        triggerManager.HapticContorller().SetStiffness(stiffness);
+        stiffness[index] = 0;
+        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
         isStiffnessStay = false;
     }
 
@@ -38,8 +39,14 @@ public class Stiffness : MonoBehaviour
         if (isStiffnessStay) return;
 
         Array.Fill(stiffness, Value);
-        triggerManager.HapticContorller().SetStiffness(Value);
+        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
 
         isStiffnessStay = true;
+    }
+
+    public void ApplyStiffnessEdit()
+    {
+        Array.Fill(stiffness, Value);
+        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
     }
 }
