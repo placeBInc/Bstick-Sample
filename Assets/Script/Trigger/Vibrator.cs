@@ -26,7 +26,7 @@ public class Vibrator : MonoBehaviour
 
     public void SetVibrator()
     {
-        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.Vibrator, vibrateData);
+        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().Direction, Common.BstickSetMotion.Vibrator, vibrateData);
     }
     public void SetVibratorInit()
     {
@@ -36,7 +36,7 @@ public class Vibrator : MonoBehaviour
         initVibrateData.repeat = 1;
         initVibrateData.state = vibrateData.state;
 
-        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.Vibrator, initVibrateData);
+        HapticContorller.Instance.SetVibrate(triggerManager.BstickInfomation().Direction, Common.BstickSetMotion.Vibrator, initVibrateData);
     }
 
     public void OnValidate()

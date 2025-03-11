@@ -1,4 +1,5 @@
 using System;
+using Bstick;
 using UnityEngine;
 using static Bstick.Common;
 
@@ -24,13 +25,13 @@ public class Stiffness : MonoBehaviour
     public void SetStiffness(int index)
     {
         stiffness[index] = Value;
-        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
+        BstickBridge.Instance.SetStiffness(triggerManager.BstickInfomation().Direction, new MotionData(){Stiffness = stiffness });
     }
 
     public void InitStiffness(int index)
     {
         stiffness[index] = 0;
-        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
+        BstickBridge.Instance.SetStiffness(triggerManager.BstickInfomation().Direction, new MotionData() { Stiffness = stiffness });
         isStiffnessStay = false;
     }
 
@@ -39,7 +40,7 @@ public class Stiffness : MonoBehaviour
         if (isStiffnessStay) return;
 
         Array.Fill(stiffness, Value);
-        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
+        BstickBridge.Instance.SetStiffness(triggerManager.BstickInfomation().Direction, new MotionData() { Stiffness = stiffness });
 
         isStiffnessStay = true;
     }
@@ -47,6 +48,6 @@ public class Stiffness : MonoBehaviour
     public void ApplyStiffnessEdit()
     {
         Array.Fill(stiffness, Value);
-        HapticContorller.Instance.SetStiffness(triggerManager.BstickInfomation().direction, BstickSetMotion.Stiffness, stiffness);
+        BstickBridge.Instance.SetStiffness(triggerManager.BstickInfomation().Direction, new MotionData() { Stiffness = stiffness });
     }
 }

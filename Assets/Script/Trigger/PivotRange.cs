@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using Bstick;
 using UnityEngine;
+using static Bstick.Common;
 
 public class PivotRange : MonoBehaviour
 {
@@ -23,22 +24,22 @@ public class PivotRange : MonoBehaviour
         //Debug.Log(String.Format("pivot : {0} , {1}", pivot, position));
 
         triggerManager = GetComponent<TriggerManager>();
-        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pivot);
+        BstickBridge.Instance.SetMotorRange(triggerManager.BstickInfomation().Direction, new MotionData() { MotorMin = pivot });
     }
 
     public void PushPivotRange(int index)
     {
         pushPivot[index] = 0;
-        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pushPivot);
+        BstickBridge.Instance.SetMotorRange(triggerManager.BstickInfomation().Direction, new MotionData() { MotorMin = pushPivot });
     }
 
     public void InitPivot()
     {
-        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, new int[5]);
+        BstickBridge.Instance.SetMotorRange(triggerManager.BstickInfomation().Direction, new Common.MotionData() { MotorMin = new int[5] });
     }
 
     public void ResetPivot(int index)
     {
-        HapticContorller.Instance.SetMotorRange(triggerManager.BstickInfomation().direction, Common.BstickSetMotion.MotorRange, pivot);
+        BstickBridge.Instance.SetMotorRange(triggerManager.BstickInfomation().Direction, new Common.MotionData() { MotorMin = pivot });
     }
 }

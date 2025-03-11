@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bstick;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static Bstick.Common;
 
 
@@ -33,7 +35,7 @@ public class FingerBending : MonoBehaviour
 
     void Awake()
     {
-        bstickInfomation = GetComponent<BstickInfomation>();
+        //bstickInfomation = GetComponent<BstickInfomation>();
 
         //if(hapticContorller == null ) Debug.Log("Bstick Not Found.");
     }
@@ -61,18 +63,18 @@ public class FingerBending : MonoBehaviour
     {
         //if (hapticContorller == null) return;
 
-        var motion = Common.BstickMotion.Position;
+        /*var motion = Common.BstickMotion.Position;
 
         BendFingers(initialThumbRotations, ThumbJoints, 
-            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.direction, motion, FingerIndex.Thumb) * BendThumbAngle);
+            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.Direction, motion, FingerIndex.Thumb) * BendThumbAngle);
         BendFingers(initialIndexRotations, IndexJoints, 
-            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.direction, motion, FingerIndex.Index) * BendAngle);
+            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.Direction, motion, FingerIndex.Index) * BendAngle);
         BendFingers(initialMiddleRotations, MiddleJoints, 
-            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.direction, motion, FingerIndex.Middle) * BendAngle);
+            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.Direction, motion, FingerIndex.Middle) * BendAngle);
         BendFingers(initialRingRotations, RingJoints, 
-            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.direction, motion, FingerIndex.Ring) * BendAngle);
+            -HapticContorller.Instance.GetFingerIndex(bstickInfomation.Direction, motion, FingerIndex.Ring) * BendAngle);
         BendFingers(initialPinkyRotations, PinkyJoints, -
-            HapticContorller.Instance.GetFingerIndex(bstickInfomation.direction, motion, FingerIndex.Pinky)* BendAngle);
+            HapticContorller.Instance.GetFingerIndex(bstickInfomation.Direction, motion, FingerIndex.Pinky)* BendAngle);*/
     }
 
     void BendFingers(Quaternion[] initRotation, Transform[] joints, float position)
@@ -99,6 +101,21 @@ public class FingerBending : MonoBehaviour
         //    fingerJoints[i].localPosition = initialPositions[i];
         //    fingerJoints[i].localRotation = initialRotations[i];
         //}
+    }
+
+    public void BendFingers(List<int> position)
+    {
+        var parsePosition = position.Select(x => 1.0f - (float)x / Common.MAX_POSITION).ToList();
+        BendFingers(initialThumbRotations, ThumbJoints,
+            -parsePosition[(int)FingerIndex.Thumb] * BendThumbAngle);
+        BendFingers(initialIndexRotations, IndexJoints,
+            -parsePosition[(int)FingerIndex.Index] * BendAngle);
+        BendFingers(initialMiddleRotations, MiddleJoints,
+            -parsePosition[(int)FingerIndex.Middle] * BendAngle);
+        BendFingers(initialRingRotations, RingJoints,
+            -parsePosition[(int)FingerIndex.Ring] * BendAngle);
+        BendFingers(initialPinkyRotations, PinkyJoints, -
+            parsePosition[(int)FingerIndex.Pinky] * BendAngle);
     }
 
     public void MappingFinger()
