@@ -87,7 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9017eaa87955ec9499fc46d5f112eb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 2
+  Direction: 0
+  BstickEnable: 0
+  DeivceAddress: 
 --- !u!1001 &1317520959870058188
 PrefabInstance:
   m_ObjectHideFlags: 0

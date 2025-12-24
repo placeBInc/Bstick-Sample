@@ -105,6 +105,7 @@ public class FingerBending : MonoBehaviour
 
     public void BendFingers(List<int> position)
     {
+        Debug.Log("Bending!!!!!!");
         var parsePosition = position.Select(x => 1.0f - (float)x / Common.MAX_POSITION).ToList();
         BendFingers(initialThumbRotations, ThumbJoints,
             -parsePosition[(int)FingerIndex.Thumb] * BendThumbAngle);

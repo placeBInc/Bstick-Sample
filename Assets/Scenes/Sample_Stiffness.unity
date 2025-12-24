@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 554031710}
   - component: {fileID: 554031717}
   - component: {fileID: 554031718}
+  - component: {fileID: 554031719}
   m_Layer: 0
   m_Name: SphereR
   m_TagString: Untagged
@@ -419,6 +420,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bstickInfomation: {fileID: 303322844}
   UseVibrator: 0
+--- !u!114 &554031719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554031709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded84a79826447f4db7ae04c0b480b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrateData:
+    pattern: 64000000
+    repeat: 1
+    state: 3
 --- !u!1 &654119841
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +450,7 @@ GameObject:
   - component: {fileID: 654119842}
   - component: {fileID: 654119849}
   - component: {fileID: 654119850}
+  - component: {fileID: 654119851}
   m_Layer: 0
   m_Name: SphereL
   m_TagString: Untagged
@@ -547,6 +565,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bstickInfomation: {fileID: 654210341}
   UseVibrator: 0
+--- !u!114 &654119851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654119841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded84a79826447f4db7ae04c0b480b30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrateData:
+    pattern: 64000000
+    repeat: 1
+    state: 3
 --- !u!1001 &654210340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1069,6 +1103,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5235608690964430168, guid: 09055e8735af451449ea6dbb193f52f2, type: 3}
+      propertyPath: _bstickInterfaces.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235608690964430168, guid: 09055e8735af451449ea6dbb193f52f2, type: 3}
+      propertyPath: _bstickInterfaces.Array.data[0]
+      value: 
+      objectReference: {fileID: 303322844}
+    - target: {fileID: 5235608690964430168, guid: 09055e8735af451449ea6dbb193f52f2, type: 3}
+      propertyPath: _bstickInterfaces.Array.data[1]
+      value: 
+      objectReference: {fileID: 654210341}
     - target: {fileID: 5235608690964430169, guid: 09055e8735af451449ea6dbb193f52f2, type: 3}
       propertyPath: m_RootOrder
       value: 3
