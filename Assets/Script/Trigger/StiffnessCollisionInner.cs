@@ -40,11 +40,12 @@ public class StiffnessCollisionInner : MonoBehaviour
 
         if (finger.PivotStay) return;
 
+        finger.PivotStay = true;
+
         if (!finger.CalculateStayTime(delayTime)) return;
 
         var index = finger.GetFingerIndex();
         triggerManager.PivotRange().PushPivotRange(index);
-        finger.PivotStay = true;
     }
 
     void OnTriggerExit(Collider other)
